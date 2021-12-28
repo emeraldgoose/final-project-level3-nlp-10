@@ -16,14 +16,14 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         self.irc_token = irc_token
         self.hogumastack = 0  
         self.broadcaseter_id = broadcaster_id
-        self.user_name = "veonico"
+        self.user_name = ""
         self.id2idx = {}
         self.summ = [] # id, nickname, n_total, n_curse
         self.detail = [] # id, curse
         self.idx = 0
         self.chatting_count = 0
     
-        with open ("/opt/ml/Baseline/korean_badwords.json", "r") as f:
+        with open ("./korean_badwords.json", "r") as f:
             self.badwords = json.load(f)['badwords']
         
         # IRC bot 연결 생성  
@@ -96,9 +96,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         # 채팅이 다섯 개 쌓일 때마다 csv 파일 저장
         if self.chatting_count == 5:
             sum_df = pd.DataFrame(self.summ, columns = ["id","nickname","num_total_comment","num_curse_comment"])
-            sum_df.to_csv("/opt/ml/frontend/temp_data.csv")
+            sum_df.to_csv("./frontend/temp_data.csv")
             detail_df = pd.DataFrame(self.detail, columns = ["id","curse_comment"])
-            detail_df.to_csv("/opt/ml/frontend/temp_total_data.csv")
+            detail_df.to_csv("./frontend/temp_total_data.csv")
             self.chatting_count = 0
 
         return

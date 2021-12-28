@@ -62,7 +62,7 @@ def main():
         ban_button = st.button("ban")
         if ban_button:
 
-            with open ("/opt/ml/Twitch_bot/config.json", "r") as f:
+            with open ("./Twitch_bot/config.json", "r") as f:
                 config = json.load(f)
 
             broadcaster_id = config['broadcaster_id']
