@@ -258,6 +258,7 @@ def train(args, tokenizer, device) -> None:
             if eval_f1 > best_f1:
                 # 가장 좋을 때의 모델을 저장합니다.
                 torch.save(student.state_dict(), f'./save/meta_pseudo/result_temp.pt')
+                mlflow.pyfunc.log_model(student, 'model', registered_model_name='toxicity_text')
                 best_f1 = eval_f1
         
             if prev_f1 == eval_f1:
