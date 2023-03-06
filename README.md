@@ -61,7 +61,7 @@
 ## Training
 
 학습을 하기 위해 아래와 같은 arguments들을 정해서 학습시킬 수 있습니다.  
-Meta Pseudo Labels이라는 학습 방법을 사용했으며 [링크](https://github.com/kekmodel/MPL-pytorch)에 있는 코드를 사용하여 적용했습니다.  
+Meta Pseudo Labels 방법을 사용했으며 [https://github.com/kekmodel/MPL-pytorch](https://github.com/kekmodel/MPL-pytorch)에 있는 코드를 사용하여 적용했습니다.  
 또한, MLflow를 설정하여 fine-tuning한 모델 중 가장 좋은 F1을 보인 모델을 서버에 저장할 수 있습니다.
 
 ```
@@ -120,4 +120,3 @@ labeled된 트위치 채팅 데이터를 테스트 데이터로 사용했습니�
 
 ## Reference
 - [Meta Pseudo Labels](https://arxiv.org/abs/2003.10580)
-- 
